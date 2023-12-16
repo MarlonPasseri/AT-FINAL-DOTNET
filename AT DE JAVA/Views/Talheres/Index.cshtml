@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AT_DE_JAVA.Models.Talheres>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Talheres</h1>
+
+<img src="~/talheres.png" width="100" height="100" />
+
+<p>
+    <div class="form-group">
+        <a asp-action="Create">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </a>
+    </div>
+</p>
+<table class="table">
+    <thead style="background-color:black; color:white; border: black solid 1px">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.preço)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.preço)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.id" style="text-decoration:none; color:white; background-color:orange; border-radius:10%; padding: 8px">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id" style="text-decoration:none; color:white; background-color:orange; border-radius:10%; padding: 8px">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id" style="text-decoration:none; color:white; background-color:orange; border-radius:10%; padding: 8px">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section footer{
+    <span>Este é o footer do Talheres!</span>
+
+}
+
+

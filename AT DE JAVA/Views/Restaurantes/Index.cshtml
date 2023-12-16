@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AT_DE_JAVA.Models.Restaurante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gerenciador De Comida</h1>
+
+<img src="~/prato.png" width="100"  height="100"/>
+
+<p>
+    <div class="form-group">
+        <a asp-action="Create">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </a>
+    </div>
+</p>
+<table class="table">
+    <thead style="background-color:black; color:white; border: black solid 1px">
+        <tr>
+            <th border>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garçon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingrediente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Garçon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingrediente)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" style="text-decoration:none; color:white; background-color:orange; border-radius:10%; padding: 8px">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none; color:white; background-color:orange; border-radius:10%; padding: 8px">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" style="text-decoration:none; color:white; background-color:orange; border-radius:10%; padding: 8px">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section footer{
+    <span>Este é o footer do Gerenciador De Comidas!</span>
+
+}
+
